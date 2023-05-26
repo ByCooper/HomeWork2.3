@@ -34,7 +34,7 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "/divide")
-    public String divideOperation(@RequestParam("num1") int a, @RequestParam("num2") int b) {
+    public String divideOperation(@RequestParam("num1") double a, @RequestParam("num2") double b) {
             return calculatorService.divideOperation(a, b);
     }
 }
