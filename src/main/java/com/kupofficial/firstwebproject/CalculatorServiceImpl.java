@@ -2,6 +2,8 @@ package com.kupofficial.firstwebproject;
 
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
+
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
 
@@ -21,11 +23,11 @@ public class CalculatorServiceImpl implements CalculatorService {
         return a + " * " + b + " = " + (a * b);
     }
 
-    public String divideOperation(int a, int b) {
+    public String divideOperation(double a, double b) {
         if (b == 0) {
             return "<b>WARNING</b>" + " На ноль делить <b>НЕЛЬЗЯ</b>";
         } else {
-            return a + " / " + b + " = " + (a / b);
+            return a + " / " + b + " = " + new DecimalFormat("###,###.##").format(a / b);
         }
     }
 }
