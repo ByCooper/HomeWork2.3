@@ -25,7 +25,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     public String divideOperation(double a, double b) {
         if (b == 0) {
-            return "<b>WARNING</b>" + " На ноль делить <b>НЕЛЬЗЯ</b>";
+            throw new IllegalArgumentException("<b>WARNING</b>" + " На ноль делить <b>НЕЛЬЗЯ</b>");
         } else {
             return a + " / " + b + " = " + new DecimalFormat("###,###.##").format(a / b);
         }
