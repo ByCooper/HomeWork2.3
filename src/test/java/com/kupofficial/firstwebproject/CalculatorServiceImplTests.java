@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.text.DecimalFormat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class CalculatorServiceImplTests {
@@ -90,8 +91,13 @@ public class CalculatorServiceImplTests {
 
     @Test
     public void testIllegalArgumentException() throws IllegalArgumentException{
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+        String expectedMessage = "<b>WARNING</b>" + " На ноль делить <b>НЕЛЬЗЯ</b>";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             cut.divideOperation(num7, num8);
         });
+
+        assertEquals(expectedMessage, exception.getMessage());
     }
 }
